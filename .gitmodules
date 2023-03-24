@@ -1,0 +1,3 @@
+[submodule "planetiler"]
+	path = planetiler
+	url = git@github.com:wipfli/planetiler.git
