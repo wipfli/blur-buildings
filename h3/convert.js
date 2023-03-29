@@ -80,3 +80,28 @@ const features_9 = geojson2h3.h3SetToFeatureCollection(Array.from(hexagons_9));
 fs.writeFileSync('out-9.json', JSON.stringify(features_9), err => {
     console.log('done');
 });
+
+
+
+
+
+const map = {};
+for (const hexagon of hexagons_13) {
+    const hexagonLow = cellToParent(hexagon, 10);
+
+    map[hexagonLow] = (map[hexagonLow] || 0) + 1;
+}
+
+
+const hexagonsLow = [];
+for (const [key, value] of Object.entries(map)) {
+    if (value > 10) {
+        hexagonsLow.push(key);
+    }
+}
+
+const featuresLow = geojson2h3.h3SetToFeatureCollection(hexagonsLow);
+
+fs.writeFileSync('out-low.json', JSON.stringify(featuresLow), err => {
+    console.log('done');
+});

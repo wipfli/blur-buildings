@@ -39,7 +39,7 @@
 
 
 
-        
+
         map.addSource('hex-13', {
             'type': 'geojson',
             'data': 'out-13.json'
@@ -118,6 +118,9 @@
             'paint': {
                 'fill-color': 'blue',
                 'fill-opacity': 0.25
+            },
+            'layout': {
+                'visibility': 'none'
             }
         });
 
@@ -143,6 +146,29 @@
             },
             'layout': {
                 'visibility': 'none'
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+        map.addSource('hex-low', {
+            'type': 'geojson',
+            'data': 'out-low.json'
+        });
+        map.addLayer({
+            'id': 'hex-low',
+            'source': 'hex-low',
+            'type': 'fill',
+            'paint': {
+                'fill-color': 'blue',
+                'fill-opacity': 0.25
             }
         });
     });
